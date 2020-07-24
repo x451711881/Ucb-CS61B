@@ -31,10 +31,10 @@ public class NBody{
 		double T = Double.parseDouble(args[0]);
 		double dt = Double.parseDouble(args[1]);
 		String filename =  args[2];
-        String soundname = args[3];
+        //String soundname = args[3];
         double radius = NBody.readRadius(filename);
         Body[] body = NBody.readBodies(filename);
-        StdAudio.play(soundname);
+        //StdAudio.play(soundname);
         StdDraw.enableDoubleBuffering();
         /** draw the bg*/
         StdDraw.setScale(-radius, radius);
