@@ -15,14 +15,16 @@ public class ArrayDeque<T> {
     private void revise(int capacity){
         T[] tmp =(T[]) new Object[capacity];
         int len = items.length;
-        System.arraycopy(items,0,tmp,0,size);
-        items = tmp;
-        //若是因为加法调用，即原array上限了
-        if(size == len){
-            nextFirst = capacity-1;
-            nextLast = size;
+        //修改长度拷贝原items数据进item时，顺便对号入座，tmp[0]就是队列第1数，tmp[1]就是队列第2数...
+        int oldIndex = moveRight(nextFirst);
+        for(int index = 0; index < size; index++){
+            tmp[index] = items[oldIndex];
+            oldIndex = moveRight(oldIndex);
         }
-
+        items = tmp;
+        //不论加还是减长度都适用的更新方式
+        nextFirst = capacity-1;
+        nextLast = size;
 
     }
 
@@ -58,7 +60,7 @@ public class ArrayDeque<T> {
     /** Adds an item of type T to the front of the deque */
     public void addFirst(T item) {
         if (size == items.length){
-            revise(size * 2);
+            revise(items.length * 2);
         }
         items[nextFirst] = item;
         nextFirst = moveLeft(nextFirst);
@@ -68,7 +70,7 @@ public class ArrayDeque<T> {
     /** Adds an item of type T to the back of the deque.*/
     public void addLast(T item){
         if (size == items.length){
-            revise(size * 2);
+            revise(items.length * 2);
         }
         items[nextLast] = item;
         nextLast = moveRight(nextLast);
@@ -111,7 +113,7 @@ public class ArrayDeque<T> {
         size--;
         int decision = judge();
         if(decision == 1){
-            revise(size/2);
+            revise(items.length/2);
         }
         return res;
     }
@@ -129,7 +131,7 @@ public class ArrayDeque<T> {
         size--;
         int decision = judge();
         if(decision == 1){
-            revise(size/2);
+            revise(items.length/2);
         }
         return res;
     }
@@ -142,7 +144,7 @@ public class ArrayDeque<T> {
        }
        int first = moveRight(nextFirst);
        //巧啊 不用循环，要前进几位就加几
-       first = (first + index) % items.length;
-       return items[first];
+       int i = (first + index) % items.length;
+       return items[i];
     }
 }

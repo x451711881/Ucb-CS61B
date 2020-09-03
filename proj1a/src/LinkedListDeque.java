@@ -13,7 +13,7 @@ public class LinkedListDeque<T> {
         }
 
         private TNode sentinel;
-        public int size;
+        private int size;
 
 
 
