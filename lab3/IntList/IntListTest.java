@@ -76,7 +76,7 @@ public class IntListTest {
      * as an input, returns null.
      */
     @Test
-    public void Testreverse(){
+    public void testReverse(){
 
           IntList A = IntList.of(1,2,3,4);
           //IntList A2 = IntList.of(1,2,3,4);
