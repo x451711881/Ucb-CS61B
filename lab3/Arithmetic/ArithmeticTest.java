@@ -33,3 +33,5 @@ public class ArithmeticTest {
         jh61b.junit.TestRunner.runTests("all", ArithmeticTest.class);
     }
 }
+/* For those of you who prefer the jh61b renderer, you can modify your JUnit test file so that it only shows the results of failed tests (instead of all tests). */
+/*To do this, simply change the mode argument from “all” in the main method to “failed”. */
