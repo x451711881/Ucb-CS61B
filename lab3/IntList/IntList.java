@@ -233,20 +233,22 @@ public class IntList {
             return null;
         }
         if (A.rest == null) {
-            IntList B = new IntList(A.first, null);
-            return B;
+
+            return A;
         }
-        IntList tail = A;
+        IntList head = A;
         A = A.rest;
-        IntList B = new IntList(tail.first, null);
+        head.rest = null;
+        IntList tmp = head;
 
         while (A != null) {
-            tail = A;
-            B = new IntList(tail.first, B);
+            head = A;
             A = A.rest;
+            head.rest = tmp;
+            tmp = head;
         }
 
-        return B;
+        return head;
 
 
 

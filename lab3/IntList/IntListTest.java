@@ -79,7 +79,7 @@ public class IntListTest {
     public void testReverse(){
 
           IntList A = IntList.of(1,2,3,4);
-          //IntList A2 = IntList.of(1,2,3,4);
+          IntList A2 = A;
           IntList blank = IntList.of();
           IntList res_A = IntList.of(4,3,2,1);
 
