@@ -82,9 +82,11 @@ public class IntListTest {
     IntList E1 = IntList.reverse((E));
     IntList exp = IntList.of(4,3,2,1);
 
+
     assertEquals(A, IntList.reverse(B));
     assertNotEquals(D,C1);
     assertEquals(exp, E1);
 
     }
+
 }

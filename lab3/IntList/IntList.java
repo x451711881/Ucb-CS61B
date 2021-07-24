@@ -17,6 +17,7 @@ public class IntList {
      */
     public IntList rest;
 
+
     /**
      * A List with first FIRST0 and rest REST0.
      */
@@ -81,12 +82,14 @@ public class IntList {
      */
 
     public static IntList dcatenate(IntList A, IntList B) {
-        //TODO:  fill in method
-        if(A ==null){
+
+        //TODO: fill in method
+        if (A == null) {
             return B;
-        }else{
+        } else {
             IntList pos = A;
-            while(pos.rest!=null){
+            while (pos.rest != null) {
+
                 pos = pos.rest;
             }
             pos.rest = B;
@@ -101,6 +104,7 @@ public class IntList {
      * * elements of B.  May NOT modify items of A.  Use 'new'.
      */
     public static IntList catenate(IntList A, IntList B) {
+
         //TODO:  fill in method
 
         if(A == null){
@@ -244,6 +248,7 @@ public class IntList {
             }
         }
     }
+
 
     @Override
     /** Outputs the IntList as a String. You are not expected to read
